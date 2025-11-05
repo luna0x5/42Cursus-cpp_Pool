@@ -6,24 +6,26 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 10:54:21 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/04 22:51:34 by hmoukit          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 10:54:21 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/04 22:32:00 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/05 04:53:18 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp" // Add this include at the top of Bureaucrat.cpp
 
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << _name << " couldn’t sign " << form.getName()
+		          << " because " << e.what() << std::endl;
+	}
+}
 /* -------------------- Orthodox Canonical Form -------------------- */
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)

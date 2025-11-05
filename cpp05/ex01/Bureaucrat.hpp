@@ -6,7 +6,19 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 10:43:42 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/04 22:50:33 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/05 04:52:42 by hmoukit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/21 10:43:42 by hmoukit           #+#    #+#             */
+/*   Updated: 2025/11/04 23:25:00 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +27,9 @@
 
 # include <iostream>
 # include <stdexcept>
+
+class Form; // 👈 Forward declaration to avoid circular dependency
+
 class Bureaucrat
 {
 	private:
@@ -22,22 +37,25 @@ class Bureaucrat
 		int _grade;
 
 	public:
-		// Orthodox Canonical Form
+		/* ---------- Orthodox Canonical Form ---------- */
 		Bureaucrat();
 		Bureaucrat(const std::string &name, int grade);
 		Bureaucrat(const Bureaucrat &src);
 		Bureaucrat &operator=(const Bureaucrat &rhs);
 		~Bureaucrat();
 
-		// Getters
+		/* ---------- Getters ---------- */
 		const std::string &getName() const;
 		int getGrade() const;
 
-		// Grade modifiers
+		/* ---------- Grade modification ---------- */
 		void incrementGrade();
 		void decrementGrade();
 
-		// Exception classes
+		/* ---------- New method for ex01 ---------- */
+		void signForm(Form &form);
+
+		/* ---------- Exception classes ---------- */
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw();
@@ -48,7 +66,7 @@ class Bureaucrat
 		};
 };
 
-// Overload of <<
+/* ---------- Operator overload ---------- */
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
 
 #endif
