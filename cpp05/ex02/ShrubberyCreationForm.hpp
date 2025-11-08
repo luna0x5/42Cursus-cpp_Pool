@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:52 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:43:53 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:50:43 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
-# include <fstream> // for file creation
+# include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
@@ -22,17 +22,14 @@ class ShrubberyCreationForm : public AForm
 		std::string _target;
 
 	public:
-		/* ---------- Orthodox Canonical Form ---------- */
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string &target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &src);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 		~ShrubberyCreationForm();
 
-		/* ---------- Override ---------- */
-		void action() const; // unique behavior
+		void action() const;
 
-		/* ---------- Getter ---------- */
 		const std::string &getTarget() const;
 };
 

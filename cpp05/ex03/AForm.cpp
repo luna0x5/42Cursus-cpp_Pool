@@ -6,14 +6,12 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:32 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:42:51 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:51:08 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
-
-/* -------------------- Orthodox Canonical Form -------------------- */
 
 AForm::AForm()
 	: _name("DefaultForm"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
@@ -56,14 +54,10 @@ AForm::~AForm()
 	std::cout << "AForm::Destructor called" << std::endl;
 }
 
-/* -------------------- Getters -------------------- */
-
 const std::string &AForm::getName() const { return _name; }
 bool AForm::getIsSigned() const { return _isSigned; }
 int AForm::getGradeToSign() const { return _gradeToSign; }
 int AForm::getGradeToExec() const { return _gradeToExec; }
-
-/* -------------------- Core Methods -------------------- */
 
 void AForm::beSigned(const Bureaucrat &b)
 {
@@ -81,8 +75,6 @@ void AForm::execute(Bureaucrat const &executor) const
 	this->action(); // Call derived class’s behavior
 }
 
-/* -------------------- Exception Classes -------------------- */
-
 const char* AForm::GradeTooHighException::what() const throw()
 {
 	return "AForm: Grade too high!";
@@ -97,8 +89,6 @@ const char* AForm::FormNotSignedException::what() const throw()
 {
 	return "AForm: The form is not signed!";
 }
-
-/* -------------------- Operator Overload -------------------- */
 
 std::ostream &operator<<(std::ostream &out, const AForm &f)
 {

@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:41 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:45:43 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:53:28 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,14 @@ class PresidentialPardonForm : public AForm
 		std::string _target;
 
 	public:
-		/* ---------- Orthodox Canonical Form ---------- */
 		PresidentialPardonForm();
 		PresidentialPardonForm(const std::string &target);
 		PresidentialPardonForm(const PresidentialPardonForm &src);
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
 		~PresidentialPardonForm();
 
-		/* ---------- Override ---------- */
 		void action() const;
 
-		/* ---------- Getter ---------- */
 		const std::string &getTarget() const;
 };
 

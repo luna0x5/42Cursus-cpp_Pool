@@ -6,13 +6,11 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:54:58 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 10:55:49 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:52:51 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-
-/* -------------------- Orthodox Canonical Form -------------------- */
 
 Intern::Intern()
 {
@@ -36,8 +34,6 @@ Intern::~Intern()
 {
 	std::cout << "Intern::Destructor called" << std::endl;
 }
-
-/* -------------------- makeForm() -------------------- */
 
 AForm* Intern::makeForm(const std::string &formName, const std::string &target)
 {

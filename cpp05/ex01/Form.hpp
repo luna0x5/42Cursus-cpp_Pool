@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 23:49:22 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/04 23:07:03 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:44:52 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <stdexcept>
-# include "Bureaucrat.hpp"   // We’ll need the Bureaucrat class here
+# include "Bureaucrat.hpp"
 
 class Bureaucrat; // Forward declaration (good practice to avoid circular includes)
 
@@ -28,23 +28,19 @@ class Form
 		const int _gradeToExec;
 
 	public:
-		/* ---------- Orthodox Canonical Form ---------- */
 		Form();
 		Form(const std::string &name, int gradeToSign, int gradeToExec);
 		Form(const Form &src);
 		Form &operator=(const Form &rhs);
 		~Form();
 
-		/* ---------- Getters ---------- */
 		const std::string &getName() const;
 		bool getIsSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExec() const;
 
-		/* ---------- Core Method ---------- */
 		void beSigned(const Bureaucrat &b);
 
-		/* ---------- Exception Classes ---------- */
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw();
@@ -56,7 +52,6 @@ class Form
 		};
 };
 
-/* ---------- Operator Overload ---------- */
 std::ostream &operator<<(std::ostream &out, const Form &f);
 
 #endif

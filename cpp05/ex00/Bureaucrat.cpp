@@ -6,25 +6,11 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 10:54:21 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/04 22:51:34 by hmoukit          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 10:54:21 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/04 22:32:00 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:36:57 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-/* -------------------- Orthodox Canonical Form -------------------- */
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 {
@@ -64,8 +50,6 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat::Destructor called" << std::endl;
 }
 
-/* -------------------- Getters -------------------- */
-
 const std::string &Bureaucrat::getName() const
 {
 	return (_name);
@@ -75,8 +59,6 @@ int Bureaucrat::getGrade() const
 {
 	return (_grade);
 }
-
-/* -------------------- Grade modifiers -------------------- */
 
 void Bureaucrat::incrementGrade()
 {
@@ -92,8 +74,6 @@ void Bureaucrat::decrementGrade()
 	_grade++;
 }
 
-/* -------------------- Exception classes -------------------- */
-
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Grade too high!";
@@ -103,8 +83,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade too low!";
 }
-
-/* -------------------- Operator overload -------------------- */
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
 {

@@ -6,15 +6,13 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:46 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:45:20 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:53:57 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 #include <ctime>
-
-/* -------------------- Orthodox Canonical Form -------------------- */
 
 RobotomyRequestForm::RobotomyRequestForm()
 	: AForm("RobotomyRequestForm", 72, 45), _target("default")
@@ -47,20 +45,16 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "RobotomyRequestForm::Destructor called" << std::endl;
 }
 
-/* -------------------- Getter -------------------- */
-
 const std::string &RobotomyRequestForm::getTarget() const
 {
 	return _target;
 }
 
-/* -------------------- Override: action() -------------------- */
-
 void RobotomyRequestForm::action() const
 {
 	std::cout << "Bzzzzzzzzz... Vrrrrrrrr... drilling noises..." << std::endl;
 
-	std::srand(std::time(0)); // seed randomness once per execution
+	std::srand(std::time(0));
 
 	if (std::rand() % 2)
 		std::cout << _target << " has been robotomized successfully 🤖!" << std::endl;

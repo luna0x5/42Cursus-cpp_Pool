@@ -6,14 +6,12 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:49 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:44:18 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:54:34 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
-
-/* -------------------- Orthodox Canonical Form -------------------- */
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 	: AForm("ShrubberyCreationForm", 145, 137), _target("default")
@@ -46,14 +44,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "ShrubberyCreationForm::Destructor called" << std::endl;
 }
 
-/* -------------------- Getter -------------------- */
-
 const std::string &ShrubberyCreationForm::getTarget() const
 {
 	return _target;
 }
-
-/* -------------------- Override: action() -------------------- */
 
 void ShrubberyCreationForm::action() const
 {

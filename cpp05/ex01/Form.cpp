@@ -6,14 +6,12 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 23:49:27 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/04 23:12:05 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:44:26 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
-
-/* -------------------- Orthodox Canonical Form -------------------- */
 
 Form::Form()
 	: _name("DefaultForm"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
@@ -56,14 +54,10 @@ Form::~Form()
 	std::cout << "Form::Destructor called" << std::endl;
 }
 
-/* -------------------- Getters -------------------- */
-
 const std::string &Form::getName() const { return _name; }
 bool Form::getIsSigned() const { return _isSigned; }
 int Form::getGradeToSign() const { return _gradeToSign; }
 int Form::getGradeToExec() const { return _gradeToExec; }
-
-/* -------------------- Core Function -------------------- */
 
 void Form::beSigned(const Bureaucrat &b)
 {
@@ -71,8 +65,6 @@ void Form::beSigned(const Bureaucrat &b)
 		throw GradeTooLowException();
 	_isSigned = true;
 }
-
-/* -------------------- Exception Classes -------------------- */
 
 const char* Form::GradeTooHighException::what() const throw()
 {
@@ -83,8 +75,6 @@ const char* Form::GradeTooLowException::what() const throw()
 {
 	return "Form: Grade too low!";
 }
-
-/* -------------------- Operator Overload -------------------- */
 
 std::ostream &operator<<(std::ostream &out, const Form &f)
 {

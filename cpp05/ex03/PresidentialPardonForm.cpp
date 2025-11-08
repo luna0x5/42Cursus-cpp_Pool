@@ -6,13 +6,11 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:39 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:46:16 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:53:19 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-
-/* -------------------- Orthodox Canonical Form -------------------- */
 
 PresidentialPardonForm::PresidentialPardonForm()
 	: AForm("PresidentialPardonForm", 25, 5), _target("default")
@@ -45,14 +43,10 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	std::cout << "PresidentialPardonForm::Destructor called" << std::endl;
 }
 
-/* -------------------- Getter -------------------- */
-
 const std::string &PresidentialPardonForm::getTarget() const
 {
 	return _target;
 }
-
-/* -------------------- Override: action() -------------------- */
 
 void PresidentialPardonForm::action() const
 {

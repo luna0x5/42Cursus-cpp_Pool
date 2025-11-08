@@ -6,36 +6,12 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 10:54:21 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:53:33 by hmoukit          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 10:54:21 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/04 22:32:00 by hmoukit          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 10:54:21 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:48:24 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/08 12:52:17 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp" // Add this include at the top of Bureaucrat.cpp
+#include "AForm.hpp"
 
 void Bureaucrat::signForm(AForm &form)
 {
@@ -64,8 +40,6 @@ void Bureaucrat::executeForm(AForm const &form) const
 		          << " because " << e.what() << std::endl;
 	}
 }
-
-/* -------------------- Orthodox Canonical Form -------------------- */
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 {
@@ -105,8 +79,6 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat::Destructor called" << std::endl;
 }
 
-/* -------------------- Getters -------------------- */
-
 const std::string &Bureaucrat::getName() const
 {
 	return (_name);
@@ -116,8 +88,6 @@ int Bureaucrat::getGrade() const
 {
 	return (_grade);
 }
-
-/* -------------------- Grade modifiers -------------------- */
 
 void Bureaucrat::incrementGrade()
 {
@@ -133,8 +103,6 @@ void Bureaucrat::decrementGrade()
 	_grade++;
 }
 
-/* -------------------- Exception classes -------------------- */
-
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Grade too high!";
@@ -144,8 +112,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade too low!";
 }
-
-/* -------------------- Operator overload -------------------- */
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
 {
