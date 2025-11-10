@@ -6,45 +6,40 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 23:49:27 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:44:26 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 15:32:20 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form()
-	: _name("DefaultForm"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
+Form::Form() : name("DeFaultForm"), isSigned(false), gradeToSign(150), gradeToExec(150)
 {
-	std::cout << "Form::Default constructor called" << std::endl;
+	std::cout << "Form: Default constructor called" << std::endl;
 }
 
-Form::Form(const std::string &name, int gradeToSign, int gradeToExec)
-	: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+Form::Form(const std::string &nme, int gradeToS, int gradeToE)
+	: name(nme), isSigned(false), gradeToSign(gradeToS), gradeToExec(gradeToE)
 {
-	std::cout << "Form::Parametric constructor called" << std::endl;
+	std::cout << "Form: Parametric constructor called" << std::endl;
 	if (gradeToSign < 1 || gradeToExec < 1)
-		throw GradeTooHighException();
+		throw (GradeTooHighException());
 	else if (gradeToSign > 150 || gradeToExec > 150)
-		throw GradeTooLowException();
+		throw (GradeTooLowException());
 }
 
 Form::Form(const Form &src)
-	: _name(src._name),
-	  _isSigned(src._isSigned),
-	  _gradeToSign(src._gradeToSign),
-	  _gradeToExec(src._gradeToExec)
+	: name(src.name), isSigned(src.isSigned), gradeToSign(src.gradeToSign), gradeToExec(src.gradeToExec)
 {
-	std::cout << "Form::Copy constructor called" << std::endl;
+	std::cout << "Form: Copy constructor called" << std::endl;
 }
 
 Form &Form::operator=(const Form &rhs)
 {
-	std::cout << "Form::Copy assignment operator called" << std::endl;
+	std::cout << "Form: Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		// Only _isSigned can change — the rest are const
-		this->_isSigned = rhs._isSigned;
+		isSigned = rhs.isSigned;
 	}
 	return (*this);
 }
@@ -54,26 +49,40 @@ Form::~Form()
 	std::cout << "Form::Destructor called" << std::endl;
 }
 
-const std::string &Form::getName() const { return _name; }
-bool Form::getIsSigned() const { return _isSigned; }
-int Form::getGradeToSign() const { return _gradeToSign; }
-int Form::getGradeToExec() const { return _gradeToExec; }
+const std::string &Form::getName() const
+{
+	return (name);
+}
+
+bool Form::getIsSigned() const 
+{
+	return (isSigned);
+}
+int Form::getGradeToSign() const
+{
+	return (gradeToSign);
+}
+int Form::getGradeToExec() const
+{
+	return (gradeToExec);
+
+}
 
 void Form::beSigned(const Bureaucrat &b)
 {
-	if (b.getGrade() > _gradeToSign)
-		throw GradeTooLowException();
-	_isSigned = true;
+	if (b.getGrade() > gradeToSign)
+		throw (GradeTooLowException());
+	isSigned = true;
 }
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return "Form: Grade too high!";
+	return ("Form: Grade too high!");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return "Form: Grade too low!";
+	return ("Form: Grade too low!");
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &f)
