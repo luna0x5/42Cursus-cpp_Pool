@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:28 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/10 16:35:31 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 17:20:06 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ int main()
 
 	std::cout << "\n----- Executing Forms -----" << std::endl;
 
-	std::cout << "\nShrubbery Test:" << std::endl;
+	std::cout << "\n Shrubbery Test:" << std::endl;
 	bob.executeForm(shrub);       // should succeed (signed + grade OK)
 	charlie.executeForm(shrub);   // fail (too low)
 
-	std::cout << "\nRobotomy Test:" << std::endl;
+	std::cout << "\n Robotomy Test:" << std::endl;
 	bob.executeForm(robo);        // should succeed randomly (50%)
 	charlie.executeForm(robo);    // fail (too low)
 
-	std::cout << "\nPresidential Pardon Test:" << std::endl;
+	std::cout << "\n Presidential Pardon Test:" << std::endl;
 	bob.executeForm(pardon);      // fail (too low to exec)
 	alice.executeForm(pardon);    // success
 

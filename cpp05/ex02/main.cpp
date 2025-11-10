@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:28 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:51:21 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 17:21:33 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,18 @@ int main()
 
 	std::cout << "\n----- Executing Forms -----" << std::endl;
 
-	std::cout << "\n🪴 Shrubbery Test:" << std::endl;
+	std::cout << "\n Shrubbery Test:" << std::endl;
 	bob.executeForm(shrub);       // should succeed (signed + grade OK)
 	charlie.executeForm(shrub);   // fail (too low)
 
-	std::cout << "\n🤖 Robotomy Test:" << std::endl;
+	std::cout << "\n Robotomy Test:" << std::endl;
 	bob.executeForm(robo);        // should succeed randomly (50%)
 	charlie.executeForm(robo);    // fail (too low)
 
-	std::cout << "\n🏛️ Presidential Pardon Test:" << std::endl;
+	std::cout << "\n Presidential Pardon Test:" << std::endl;
 	bob.executeForm(pardon);      // fail (too low to exec)
 	alice.executeForm(pardon);    // success
 
-	std::cout << "\n----- Summary: all tests done successfully ✅ -----" << std::endl;
+	std::cout << "\n----- Summary: all tests done successfully -----" << std::endl;
 	return 0;
 }
