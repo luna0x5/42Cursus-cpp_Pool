@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 10:43:42 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:43:45 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 11:08:54 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 # include <iostream>
 # include <stdexcept>
 
-class Form; // Forward declaration to avoid circular dependency
+class Form;
 
 class Bureaucrat
 {
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string name;
+		int grade;
 
 	public:
 		Bureaucrat();
-		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const std::string &nm, int grd);
 		Bureaucrat(const Bureaucrat &src);
 		Bureaucrat &operator=(const Bureaucrat &rhs);
 		~Bureaucrat();
@@ -48,7 +48,8 @@ class Bureaucrat
 				const char* what() const throw();
 		};
 };
-
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
-
-#endif
+	
+	std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
+	
+	#endif
+	

@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 10:43:42 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:37:16 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 11:09:54 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 
 # include <iostream>
 # include <stdexcept>
+
 class Bureaucrat
 {
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string name;
+		int grade;
 
 	public:
 		Bureaucrat();
-		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const std::string &nm, int grd);
 		Bureaucrat(const Bureaucrat &src);
 		Bureaucrat &operator=(const Bureaucrat &rhs);
 		~Bureaucrat();
