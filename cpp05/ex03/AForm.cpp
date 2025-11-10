@@ -6,73 +6,83 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:32 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:51:08 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:11:22 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm()
-	: _name("DefaultForm"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
+AForm::AForm() : name("DeFaultForm"), isSigned(false), gradeToSign(150), gradeToExec(150)
 {
-	std::cout << "AForm::Default constructor called" << std::endl;
+	std::cout << "Form: Default constructor called" << std::endl;
 }
 
-AForm::AForm(const std::string &name, int gradeToSign, int gradeToExec)
-	: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+AForm::AForm(const std::string &nme, int gradeToS, int gradeToE)
+	: name(nme), isSigned(false), gradeToSign(gradeToS), gradeToExec(gradeToE)
 {
-	std::cout << "AForm::Parametric constructor called" << std::endl;
-	if (_gradeToSign < 1 || _gradeToExec < 1)
-		throw GradeTooHighException();
-	else if (_gradeToSign > 150 || _gradeToExec > 150)
-		throw GradeTooLowException();
+	std::cout << "Form: Parametric constructor called" << std::endl;
+	if (gradeToSign < 1 || gradeToExec < 1)
+		throw (GradeTooHighException());
+	else if (gradeToSign > 150 || gradeToExec > 150)
+		throw (GradeTooLowException());
 }
 
 AForm::AForm(const AForm &src)
-	: _name(src._name),
-	  _isSigned(src._isSigned),
-	  _gradeToSign(src._gradeToSign),
-	  _gradeToExec(src._gradeToExec)
+	: name(src.name), isSigned(src.isSigned), gradeToSign(src.gradeToSign), gradeToExec(src.gradeToExec)
 {
-	std::cout << "AForm::Copy constructor called" << std::endl;
+	std::cout << "Form: Copy constructor called" << std::endl;
 }
 
 AForm &AForm::operator=(const AForm &rhs)
 {
-	std::cout << "AForm::Copy assignment operator called" << std::endl;
+	std::cout << "Form: Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		// Only _isSigned can change — everything else is const
-		this->_isSigned = rhs._isSigned;
+		isSigned = rhs.isSigned;
 	}
 	return (*this);
 }
 
 AForm::~AForm()
 {
-	std::cout << "AForm::Destructor called" << std::endl;
+	std::cout << "Form::Destructor called" << std::endl;
 }
 
-const std::string &AForm::getName() const { return _name; }
-bool AForm::getIsSigned() const { return _isSigned; }
-int AForm::getGradeToSign() const { return _gradeToSign; }
-int AForm::getGradeToExec() const { return _gradeToExec; }
+const std::string &AForm::getName() const
+{
+	return (name);
+}
+
+bool AForm::getIsSigned() const
+{
+	return (isSigned);
+}
+
+int AForm::getGradeToSign() const
+{
+	return (gradeToSign);
+}
+
+int AForm::getGradeToExec() const
+{
+	return (gradeToExec);
+}
 
 void AForm::beSigned(const Bureaucrat &b)
 {
-	if (b.getGrade() > _gradeToSign)
+	if (b.getGrade() > gradeToSign)
 		throw GradeTooLowException();
-	_isSigned = true;
+	isSigned = true;
 }
 
 void AForm::execute(Bureaucrat const &executor) const
 {
-	if (!_isSigned)
+	if (!isSigned)
 		throw FormNotSignedException();
-	if (executor.getGrade() > _gradeToExec)
+	if (executor.getGrade() > gradeToExec)
 		throw GradeTooLowException();
-	this->action(); // Call derived class’s behavior
+	this->action();
 }
 
 const char* AForm::GradeTooHighException::what() const throw()

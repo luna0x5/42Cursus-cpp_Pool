@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:44 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:48:55 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:17:04 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class RobotomyRequestForm : public AForm
 {
 	private:
-		std::string _target;
+		std::string target;
 
 	public:
 		RobotomyRequestForm();

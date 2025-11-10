@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:41 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:53:28 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:15:05 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class PresidentialPardonForm : public AForm
 {
 	private:
-		std::string _target;
+		std::string target;
 
 	public:
 		PresidentialPardonForm();

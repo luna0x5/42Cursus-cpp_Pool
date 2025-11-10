@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:52 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:54:49 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:17:53 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class ShrubberyCreationForm : public AForm
 {
 	private:
-		std::string _target;
+		std::string target;
 
 	public:
 		ShrubberyCreationForm();
@@ -28,7 +28,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 		~ShrubberyCreationForm();
 
-		void action() const; // unique behavior
+		void action() const;
 
 		const std::string &getTarget() const;
 };

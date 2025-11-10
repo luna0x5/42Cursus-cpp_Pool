@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:35 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:45:45 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:11:51 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ class Bureaucrat;
 class AForm
 {
 	private:
-		const std::string _name;
-		bool _isSigned;
-		const int _gradeToSign;
-		const int _gradeToExec;
+		const std::string name;
+		bool isSigned;
+		const int gradeToSign;
+		const int gradeToExec;
 
 	public:
 		AForm();
-		AForm(const std::string &name, int gradeToSign, int gradeToExec);
+		AForm(const std::string &nme, int gradeToS, int gradeToE);
 		AForm(const AForm &src);
 		AForm &operator=(const AForm &rhs);
 		virtual ~AForm();
@@ -40,9 +40,9 @@ class AForm
 		int getGradeToExec() const;
 
 		void beSigned(const Bureaucrat &b);
-		void execute(Bureaucrat const &executor) const; // checks + calls action()
+		void execute(Bureaucrat const &executor) const;
 
-		virtual void action() const = 0; // implemented by subclasses
+		virtual void action() const = 0;
 
 		class GradeTooHighException : public std::exception {
 			public:

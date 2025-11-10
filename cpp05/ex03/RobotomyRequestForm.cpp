@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:46 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:53:57 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:17:39 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 #include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm()
-	: AForm("RobotomyRequestForm", 72, 45), _target("default")
+	: AForm("RobotomyRequestForm", 72, 45), target("default")
 {
 	std::cout << "RobotomyRequestForm::Default constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-	: AForm("RobotomyRequestForm", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &targ)
+	: AForm("RobotomyRequestForm", 72, 45), target(targ)
 {
 	std::cout << "RobotomyRequestForm::Parametric constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
-	: AForm(src), _target(src._target)
+	: AForm(src), target(src.target)
 {
 	std::cout << "RobotomyRequestForm::Copy constructor called" << std::endl;
 }
@@ -36,7 +36,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 {
 	std::cout << "RobotomyRequestForm::Copy assignment operator called" << std::endl;
 	if (this != &rhs)
-		this->_target = rhs._target;
+		this->target = rhs.target;
 	return (*this);
 }
 
@@ -47,7 +47,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 const std::string &RobotomyRequestForm::getTarget() const
 {
-	return _target;
+	return target;
 }
 
 void RobotomyRequestForm::action() const
@@ -57,7 +57,7 @@ void RobotomyRequestForm::action() const
 	std::srand(std::time(0));
 
 	if (std::rand() % 2)
-		std::cout << _target << " has been robotomized successfully 🤖!" << std::endl;
+		std::cout << target << " has been robotomized successfully 🤖!" << std::endl;
 	else
-		std::cout << "Robotomy failed on " << _target << " 💥" << std::endl;
+		std::cout << "Robotomy failed on " << target << " 💥" << std::endl;
 }
