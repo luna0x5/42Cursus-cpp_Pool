@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:40:28 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 11:02:56 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:35:31 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ int main()
 
 	std::cout << "\n----- Executing Forms -----" << std::endl;
 
-	std::cout << "\n🪴 Shrubbery Test:" << std::endl;
+	std::cout << "\nShrubbery Test:" << std::endl;
 	bob.executeForm(shrub);       // should succeed (signed + grade OK)
 	charlie.executeForm(shrub);   // fail (too low)
 
-	std::cout << "\n🤖 Robotomy Test:" << std::endl;
+	std::cout << "\nRobotomy Test:" << std::endl;
 	bob.executeForm(robo);        // should succeed randomly (50%)
 	charlie.executeForm(robo);    // fail (too low)
 
-	std::cout << "\n🏛️ Presidential Pardon Test:" << std::endl;
+	std::cout << "\nPresidential Pardon Test:" << std::endl;
 	bob.executeForm(pardon);      // fail (too low to exec)
 	alice.executeForm(pardon);    // success
 
@@ -81,9 +81,8 @@ int main()
 		alice.executeForm(*form3);
 		delete form3;
 	}
-	delete form4; // safe to delete NULL
-
-	std::cout << "\n----- Summary: ex03 complete ✅ -----" << std::endl;
+	delete form4;
+	std::cout << "\n----- Summary: ex03 complete -----" << std::endl;
 	return 0;
 }
 

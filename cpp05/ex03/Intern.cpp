@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:54:58 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/08 12:52:51 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:33:04 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,16 @@ AForm* Intern::makeForm(const std::string &formName, const std::string &target)
 		"robotomy request",
 		"presidential pardon"
 	};
-
 	AForm* forms[3] = {
 		new ShrubberyCreationForm(target),
 		new RobotomyRequestForm(target),
 		new PresidentialPardonForm(target)
 	};
-
 	for (int i = 0; i < 3; i++)
 	{
 		if (formName == formNames[i])
 		{
 			std::cout << "Intern creates " << forms[i]->getName() << std::endl;
-
-			// delete other unused forms to avoid memory leaks
 			for (int j = 0; j < 3; j++)
 				if (j != i)
 					delete forms[j];
@@ -63,12 +59,8 @@ AForm* Intern::makeForm(const std::string &formName, const std::string &target)
 			return forms[i];
 		}
 	}
-
 	std::cout << "Intern: unknown form name!" << std::endl;
-
-	// clean up
 	for (int i = 0; i < 3; i++)
 		delete forms[i];
-
 	return NULL;
 }

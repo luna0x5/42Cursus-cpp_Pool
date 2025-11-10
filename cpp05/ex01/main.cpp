@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 04:27:14 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/05 04:27:17 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:35:03 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int main()
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 
-	std::cout << "\nAll tests done successfully ✅" << std::endl;
+	std::cout << "\nAll tests done successfully" << std::endl;
 
 	return 0;
 }
