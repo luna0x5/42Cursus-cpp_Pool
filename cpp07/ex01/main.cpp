@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 18:00:11 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/25 08:27:01 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/11/28 17:17:46 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void increment(int& n)
 int main()
 {
     // --- Example 1: int array ---
-    int numbers[] = {1, 2, 3, 4, 5};
+    const int numbers[] = {1, 2, 3, 4, 5};
     std::cout << "Original int array:" << std::endl;
     iter(numbers, 5, printElement<int>);
 
     std::cout << "\nAfter increment:" << std::endl;
-    iter(numbers, 5, increment);
+    // iter(numbers, 5, increment);
     iter(numbers, 5, printElement<int>);
 
     // --- Example 2: string array ---
