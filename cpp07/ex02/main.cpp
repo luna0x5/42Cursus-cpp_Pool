@@ -6,15 +6,10 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 18:00:24 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/12/01 12:36:25 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/12/01 12:48:02 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
-#include <iostream>
-#include <string>
-
-// main.cpp
 #include "Array.hpp"
 #include <iostream>
 #include <string>
