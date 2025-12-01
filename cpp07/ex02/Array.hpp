@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 18:00:20 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/11/25 08:42:30 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/12/01 12:32:01 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,59 +15,8 @@
 
 # include <iostream>
 # include <stdexcept>
-
-// template <typename T>
-// class Array
-// {
-// 	private:
-// 		T* _array;
-// 		unsigned int _size;
-
-// 	public:
-// 		Array() : _array(NULL), _size(0) {}
-// 		Array(unsigned int n) : _array(new T[n]()), _size(n) {}
-// 		Array(const Array& other) : _array(NULL), _size(0)
-// 		{
-// 			*this = other;
-// 		}
-// 		~Array()
-// 		{
-// 			delete[] _array;
-// 		}
-// 		Array& operator=(const Array& other)
-// 		{
-// 			if (this != &other)
-// 			{
-// 				delete[] _array;
-// 				_size = other._size;
-// 				if (_size > 0)
-// 				{
-// 					_array = new T[_size];
-// 					for (unsigned int i = 0; i < _size; ++i)
-// 						_array[i] = other._array[i];
-// 				}
-// 				else
-// 					_array = NULL;
-// 			}
-// 			return *this;
-// 		}
-// 		T& operator[](unsigned int index)
-// 		{
-// 			if (index >= _size)
-// 				throw std::out_of_range("Index out of bounds");
-// 			return _array[index];
-// 		}
-// 		const T& operator[](unsigned int index) const
-// 		{
-// 			if (index >= _size)
-// 				throw std::out_of_range("Index out of bounds");
-// 			return _array[index];
-// 		}
-// 		unsigned int size() const
-// 		{
-// 			return _size;
-// 		}
-// };
+#include <cstdlib>
+#include <ctime>
 
 template <typename T>
 class Array
