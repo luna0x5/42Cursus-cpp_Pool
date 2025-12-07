@@ -6,7 +6,7 @@
 /*   By: hmoukit <hmoukit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 03:27:43 by hmoukit           #+#    #+#             */
-/*   Updated: 2025/12/07 03:32:10 by hmoukit          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:15:19 by hmoukit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,24 @@
 #include <vector>
 #include <deque>
 #include <string>
+#include <utility>
 
 class PmergeMe {
 private:
     std::vector<int> _vectorData;
     std::deque<int> _dequeData;
     
-    // Vector sorting functions
-    void mergeInsertSortVector(std::vector<int>& arr, int left, int right);
-    void insertionSortVector(std::vector<int>& arr, int left, int right);
-    void mergeVector(std::vector<int>& arr, int left, int mid, int right);
+    // Helper to generate Jacobsthal numbers
+    size_t jacobsthal(size_t n) const;
+    std::vector<size_t> generateJacobsthalSequence(size_t size) const;
     
-    // Deque sorting functions
-    void mergeInsertSortDeque(std::deque<int>& arr, int left, int right);
-    void insertionSortDeque(std::deque<int>& arr, int left, int right);
-    void mergeDeque(std::deque<int>& arr, int left, int mid, int right);
+    // Vector implementation
+    void fordJohnsonSortVector(std::vector<int>& arr);
+    void binaryInsertVector(std::vector<int>& arr, int value, size_t end);
+    
+    // Deque implementation
+    void fordJohnsonSortDeque(std::deque<int>& arr);
+    void binaryInsertDeque(std::deque<int>& arr, int value, size_t end);
     
     bool isValidNumber(const std::string& str) const;
 
